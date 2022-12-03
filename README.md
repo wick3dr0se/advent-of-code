@@ -7,5 +7,6 @@ Day | Program | Execution | Lines
 :--|---|---|--:
 1 | calories.sh | ~70ms | 38
 2 | rockPaperScissors.sh | ~90ms | 61
+3 | rucksacks.sh | ~100ms | 43 
 
 </div>
