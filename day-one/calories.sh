@@ -26,7 +26,7 @@ while read -r line ; do
   else
     lines+="$line "
   fi
-done < elfCalories.txt
+done < puzzle.txt
 
 IFS=, # split on comma
 # store each line to an iterated indexed array
