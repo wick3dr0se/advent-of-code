@@ -13,49 +13,49 @@ while read -r o a; do
     1) # ally X - rock
       a=0 # loss
       case $opp in
-	1) # opp A - rock
-	  ((a+=3)) # ally Z - scissors
-	  ((ally+=3)) # tie
-	;;
-	2) # opp B - paper 
-	  ((a++)) # ally X - rock
-	;;
-	3) # opp C - scissors
-	  ((a+=2)) # ally Y - paper
-	  ((ally+=6)) # win
-	;;
+        1) # opp A - rock
+          ((a+=3)) # ally Z - scissors
+          ((ally+=3)) # tie
+        ;;
+        2) # opp B - paper 
+          ((a++)) # ally X - rock
+        ;;
+        3) # opp C - scissors
+          ((a+=2)) # ally Y - paper
+          ((ally+=6)) # win
+        ;;
       esac
     ;;
     2) # ally Y - paper
       a=3 # tie
       case $opp in
-	1) # opp A - rock
-	  ((a++)) # ally X - rock
-	  ((ally+=6)) # win
-	;;
-	2) # opp B - paper
-	  ((a+=2)) # ally Y - paper
-	  ((ally+=3)) # tie
-	;;
+        1) # opp A - rock
+          ((a++)) # ally X - rock
+          ((ally+=6)) # win
+        ;;
+        2) # opp B - paper
+          ((a+=2)) # ally Y - paper
+          ((ally+=3)) # tie
+        ;;
         3) # opp C - scissors
-	  ((a+=3)) # ally Z - scissors
-	;;
+          ((a+=3)) # ally Z - scissors
+        ;;
       esac
     ;;
     3) #ally Z - scissors 
       a=6 # win 
       case $opp in
-	1) # opp A - rock
-	  ((a+=2)) # ally Y - paper
-	;;
-	2) # opp B - paper
-	  ((a+=3)) # ally Z - scissors
-	  ((ally+=6)) # win
-	;;
+        1) # opp A - rock
+          ((a+=2)) # ally Y - paper
+        ;;
+        2) # opp B - paper
+          ((a+=3)) # ally Z - scissors
+          ((ally+=6)) # win
+        ;;
         3) # opp C - scissors
-	  ((a++)) # ally X - rock
-	  ((ally+=3)) # tie
-	;;
+          ((a++)) # ally X - rock
+          ((ally+=3)) # tie
+        ;;
       esac
     ;;
   esac
