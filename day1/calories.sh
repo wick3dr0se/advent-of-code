@@ -42,7 +42,6 @@ done
 
 # get the most elf calories
 get_cal_max 0
-printf '[Part one]: \e[32m%s\e[m\n' "${elfCalsMax[0]}"
 
 # get next 2 top elf calories; get the sum of all 3
 get_cal_max 1; get_cal_max 2
@@ -50,4 +49,5 @@ declare -i elvesCalsMax
 for _ in "${elfCalsMax[0]}" "${elfCalsMax[1]}" "${elfCalsMax[2]}" ; do
   elvesCalsMax+="$_"
 done
-printf '[Part two]: \e[32m%s\e[m\n' "$elvesCalsMax"
+
+printf '%d %d\n' "${elfCalsMax[0]}" "$elvesCalsMax"

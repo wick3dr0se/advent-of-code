@@ -57,5 +57,4 @@ for group in $groups; do
   ((sumTwo+=badgePriority))
 done
 
-printf '[Part %s]: \e[32m%s\e[m\n' \
-  'one' "$sum" 'two' "$sumTwo"
+printf '%d %d\n' "$sum" "$sumTwo"
