@@ -1,6 +1,6 @@
 #!/bin/bash
 
-loc(){ # actual lines of code
+aloc(){ # actual lines of code
   local line loc
   mapfile -tn 0 < "$1"
   for line in "${MAPFILE[@]}"; do
@@ -9,8 +9,8 @@ loc(){ # actual lines of code
     loc+=("$line")
   done
 
-  printf '[%s]: \e[32m%s\e[m [LOC]: %s\n' \
-    "$2" "$1" "${#loc[@]}"
+  printf '[\e[4%d;30m%s\e[m]: \e[34m%s\e[m [ALOC]: %s\n' \
+    "$3" "$2" "$1" "${#loc[@]}"
 }
 
 n="${1:-1}"
@@ -20,10 +20,11 @@ cd "day$n"
   i=1
   for f in *.nim; do
     [[ -f $f ]]&&{
-      loc "$f" 'Nim'
+      aloc "$f" 'Nim' 3
       printf '[Day %d, Part %d]: ' "$n" "$i"
       nim c --hints:off "$f"
       time ./"${f%.nim}"
+      echo
       rm -fr "${f%.nim}"
       ((i++))
     }
@@ -38,13 +39,14 @@ cd "day$n"
   i=1
   for f in *.sh; do
     [[ -f $f ]]&&{
-      loc "$f" 'BASH'
+      aloc "$f" 'BASH' 2
       if (( count == 1 )); then
         printf '[Day %d, Part 1 & 2]: ' "$n"
       else
         printf '[Day %d, Part %d]: ' "$n" "$i"
       fi
       time bash $f
+      echo
       ((i++))
     }
   done
