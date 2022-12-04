@@ -1,0 +1,50 @@
+#!/bin/bash
+
+loc(){ # actual lines of code
+  mapfile -tn 0 < "$1"
+  for line in "${MAPFILE[@]}"; do
+  # ignore empty & commented lines
+    [[ $line == '' || $line == '#'* ]]||
+    loc+=("$line")
+  done
+
+  printf '[%s]: \e[32m%s\e[m [LOC]: %s\n' \
+    ""$2 "$1" "${#loc[@]}"
+}
+
+n="${1:-1}"
+cd "day$n"
+
+[[ $2 == 'bash' ]]||{
+  i=1
+  for f in *.nim; do
+    [[ -f $f ]]&&{
+      loc "$f" 'Nim'
+      printf '[Day %d, Part %d]: ' "$n" "$i"
+      nim c --hints:off "$f"
+      time ./"${f%.nim}"
+      rm -fr "${f%.nim}"
+      ((i++))
+    }
+  done
+}
+
+[[ $2 == 'nim' ]]||{
+  for c in *.sh; do
+    ((count++))
+  done
+
+  i=1
+  for f in *.sh; do
+    [[ -f $f ]]&&{
+      loc "$f" 'BASH'
+      if (( count == 1 )); then
+        printf '[Day %d, Part 1 & 2]: ' "$n"
+      else
+        printf '[Day %d, Part %d]: ' "$n" "$i"
+      fi
+      time bash $f
+      ((i++))
+    }
+  done
+}
