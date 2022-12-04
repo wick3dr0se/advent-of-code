@@ -1,5 +1,5 @@
 #!/bin/bash
-# Advent of Code day 4, part 1 & 2: Camp Cleanup
+# Advent of Code day 4, part 1&2: Camp Cleanup
 
 # s1 = pair one
 # s2 = pair two

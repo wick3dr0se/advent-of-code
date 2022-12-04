@@ -1,6 +1,7 @@
 #!/bin/bash
 
 loc(){ # actual lines of code
+  local line loc
   mapfile -tn 0 < "$1"
   for line in "${MAPFILE[@]}"; do
   # ignore empty & commented lines
@@ -9,7 +10,7 @@ loc(){ # actual lines of code
   done
 
   printf '[%s]: \e[32m%s\e[m [LOC]: %s\n' \
-    ""$2 "$1" "${#loc[@]}"
+    "$2" "$1" "${#loc[@]}"
 }
 
 n="${1:-1}"

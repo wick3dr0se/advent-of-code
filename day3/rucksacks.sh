@@ -1,4 +1,5 @@
 #!/bin/bash
+# Advent of Code day 3, part 1&2: Rucksack Reorganization
 
 declare -A priorities
 for c in {a..z}; do

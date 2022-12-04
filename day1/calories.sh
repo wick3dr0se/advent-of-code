@@ -1,5 +1,6 @@
 #!/bin/bash
 # shellcheck disable=SC2004
+# Advent of Code day 1 part 1&2: Counting Calories
 
 get_sum(){
 declare -gi cals
